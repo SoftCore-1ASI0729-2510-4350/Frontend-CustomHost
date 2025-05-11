@@ -1,0 +1,7 @@
+<mat-button-toggle-group [value]="currentLang" name="fontStyle" aria-label="Font Style">
+  @for (language of languages; track language) {
+    <mat-button-toggle [value]="language" (click)="changeLanguage(language)">
+      {{ language}}
+    </mat-button-toggle>
+  }
+</mat-button-toggle-group>
