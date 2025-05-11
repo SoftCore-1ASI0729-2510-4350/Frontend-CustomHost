@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import {SidebarComponent} from './public/components/sidebar/sidebar.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [SidebarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
