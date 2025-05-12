@@ -1,0 +1,19 @@
+{
+  "sidebar-items": {
+    "home": "Inicio",
+    "main-page": "Página Principal",
+    "login": "Iniciar Sesión",
+    "register": "Registro",
+    "administration": "Administración",
+    "book": "Reservar",
+    "bookings-tracker": "Seguimiento de Reservas",
+    "customer-requests": "Solicitudes de Clientes",
+    "customer-service": "Atención al Cliente",
+    "my-bookings": "Mis Reservas",
+    "request-staff": "Solicitar Personal",
+    "iot-devices": "Dispositivos IoT",
+    "profile": "Perfil",
+    "preferences": "Preferencias",
+    "page-not-found": "Página No Encontrada"
+  }
+}

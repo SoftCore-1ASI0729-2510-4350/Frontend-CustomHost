@@ -1,0 +1,19 @@
+{
+  "sidebar-items": {
+    "home": "Home",
+    "main-page": "Main Page",
+    "login": "Login",
+    "register": "Register",
+    "administration": "Administration",
+    "book": "Book",
+    "bookings-tracker": "Bookings Tracker",
+    "customer-requests": "Customer Requests",
+    "customer-service": "Customer Service",
+    "my-bookings": "My Bookings",
+    "request-staff": "Request Staff",
+    "iot-devices": "IoT Devices",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "page-not-found": "Page Not Found"
+  }
+}
