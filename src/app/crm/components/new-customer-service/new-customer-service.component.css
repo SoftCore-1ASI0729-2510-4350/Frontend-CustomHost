@@ -1,0 +1,14 @@
+.action-card {
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+mat-card-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+button {
+  margin-right: 8px;
+}

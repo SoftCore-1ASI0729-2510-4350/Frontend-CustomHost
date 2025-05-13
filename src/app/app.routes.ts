@@ -6,11 +6,9 @@ const RegisterComponent = () => import('./auth/pages/register/register.component
 const AdminComponent = () => import('./billing/pages/admin/admin.component').then(m => m.AdminComponent);
 
 const BookComponent = () => import('./crm/pages/book/book.component').then(m => m.BookComponent);
-const BookingsTrackerComponent = () => import('./crm/pages/bookings-tracker/bookings-tracker.component').then(m => m.BookingsTrackerComponent);
 const CustomerRequestsComponent = () => import('./crm/pages/customer-requests/customer-requests.component').then(m => m.CustomerRequestsComponent);
 const CustomerServiceComponent = () => import('./crm/pages/customer-service/customer-service.component').then(m => m.CustomerServiceComponent);
 const MyBookingsComponent = () => import('./crm/pages/my-bookings/my-bookings.component').then(m => m.MyBookingsComponent);
-const RequestStaffComponent = () => import('./crm/pages/request-staff/request-staff.component').then(m => m.RequestStaffComponent);
 const AvailableRoomsViewComponent = () => import('./crm/pages/available-rooms-view/available-rooms-view.component').then(m => m.AvailableRoomsViewComponent);
 const CustomizeRoomViewComponent = () => import('./crm/pages/customize-room-view/customize-room-view.component').then(m => m.CustomizeRoomComponent);
 
@@ -38,11 +36,9 @@ export const routes: Routes = [
 
   { path: 'crm', children: [
       { path: 'book', loadComponent: BookComponent, data: { title: 'Reservar' } },
-      { path: 'bookings-tracker', loadComponent: BookingsTrackerComponent, data: { title: 'Seguimiento de Reservas' } },
       { path: 'customer-requests', loadComponent: CustomerRequestsComponent, data: { title: 'Solicitudes de Clientes' } },
       { path: 'customer-service', loadComponent: CustomerServiceComponent, data: { title: 'Atención al Cliente' } },
       { path: 'my-bookings', loadComponent: MyBookingsComponent, data: { title: 'Mis Reservas' } },
-      { path: 'request-staff', loadComponent: RequestStaffComponent, data: { title: 'Solicitar Personal' } },
       { path: 'available-rooms-view', loadComponent: AvailableRoomsViewComponent, data: { title: 'Habitaciones Disponibles' } },
       { path: 'customize-room-view/:roomId', loadComponent: CustomizeRoomViewComponent, data: { title: 'Personalizar Habitación' } }
     ]
