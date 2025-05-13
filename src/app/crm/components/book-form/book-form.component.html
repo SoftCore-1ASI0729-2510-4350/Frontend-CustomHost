@@ -1,0 +1,37 @@
+<mat-form-field appearance="outline" class="booking-form">
+  <mat-label>Booking</mat-label>
+
+  <div class="form-grid" [formGroup]="bookingForm">
+    <mat-form-field appearance="outline" class="date-field">
+      <mat-label>From</mat-label>
+      <input matInput [matDatepicker]="fromPicker" formControlName="fromDate">
+      <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+      <mat-datepicker #fromPicker></mat-datepicker>
+      <mat-error *ngIf="bookingForm.controls.fromDate.hasError('required')">
+        Start date is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="date-field">
+      <mat-label>To</mat-label>
+      <input matInput [matDatepicker]="toPicker" formControlName="toDate">
+      <mat-datepicker-toggle matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
+      <mat-datepicker #toPicker></mat-datepicker>
+      <mat-error *ngIf="bookingForm.controls.toDate.hasError('required')">
+        End date is required
+      </mat-error>
+      <mat-error *ngIf="bookingForm.controls.toDate.hasError('dateRange')">
+        Must be greater than the start date
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button
+            color="primary"
+            (click)="submitForm()"
+            [disabled]="bookingForm.invalid"
+            class="submit-button">
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+  </div>
+</mat-form-field>
