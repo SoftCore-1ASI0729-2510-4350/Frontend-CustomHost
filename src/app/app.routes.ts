@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './public/pages/home/home.component';
 
 const BookComponent = () => import('./crm/pages/book/book.component').then(m => m.BookComponent);
-const CustomerRequestsComponent = () => import('./crm/pages/customer-requests/customer-requests.component').then(m => m.CustomerRequestsComponent);
 const CustomerServiceComponent = () => import('./crm/pages/customer-service/customer-service.component').then(m => m.CustomerServiceComponent);
 const MyBookingsComponent = () => import('./crm/pages/my-bookings/my-bookings.component').then(m => m.MyBookingsComponent);
 const AvailableRoomsViewComponent = () => import('./crm/pages/available-rooms-view/available-rooms-view.component').then(m => m.AvailableRoomsViewComponent);
@@ -15,6 +14,9 @@ const PreferencesComponent = () => import('./profiles/pages/preferences/preferen
 
 const PageNotFoundComponent = () => import('./public/pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent);
 
+const CustomerServicesCreateAndEditComponent = () => import('./crm/pages/customer-services-create-and-edit/customer-services-create-and-edit.component').then(m => m.CustomerServicesCreateAndEditComponent);
+
+
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full', data: { title: 'Inicio' } },
   { path: 'home', component: HomeComponent, data: { title: 'Página Principal' } },
@@ -22,8 +24,8 @@ export const routes: Routes = [
 
   { path: 'crm', children: [
       { path: 'book', loadComponent: BookComponent, data: { title: 'Reservar' } },
-      { path: 'customer-requests', loadComponent: CustomerRequestsComponent, data: { title: 'Solicitudes de Clientes' } },
       { path: 'customer-service', loadComponent: CustomerServiceComponent, data: { title: 'Atención al Cliente' } },
+      { path: 'customer-service/new', loadComponent: CustomerServicesCreateAndEditComponent, data: { title: 'New Customer service' } },
       { path: 'my-bookings', loadComponent: MyBookingsComponent, data: { title: 'Mis Reservas' } },
       { path: 'available-rooms-view', loadComponent: AvailableRoomsViewComponent, data: { title: 'Habitaciones Disponibles' } },
       { path: 'customize-room-view/:roomId', loadComponent: CustomizeRoomViewComponent, data: { title: 'Personalizar Habitación' } }
