@@ -1,0 +1,35 @@
+<app-header (onToggle)="drawer.toggle()" />
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer mode="side" #drawer opened
+              style="background-color: var(--secondary-color);border-radius: 0;">
+    <mat-nav-list>
+
+      @for (route of routes; track route.path){
+        @if (route.type === role || route.type === 'both'){
+
+            <a id="item" class="item_sidenav" mat-list-item [routerLink]="route.path" routerLinkActive="active"
+               [ngClass]="{ 'active-route': isActive(route.path) }"
+               style="border-radius: 0;display: flex!important;"
+            >
+              <div style="display: flex;">
+                <mat-icon style="color:var(--background-color);"
+                          [ngClass]="{ 'active-route': isActive(route.path) }">
+                  {{ route.icon }}</mat-icon>
+                <span style="color:var(--background-color);padding-left: 10px;"
+                      [ngClass]="{ 'active-route': isActive(route.path) }">
+                {{ route.name | translate }}</span>
+              </div>
+
+            </a>
+
+
+          }
+      }
+
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
