@@ -1,0 +1,57 @@
+<div class="table-container">
+  <table mat-table [dataSource]="serviceRequests" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let request">{{ request.id }}</td>
+    </ng-container>
+
+    <!-- Request Type Column -->
+    <ng-container matColumnDef="requestType">
+      <th mat-header-cell *matHeaderCellDef>Tipo de solicitud</th>
+      <td mat-cell *matCellDef="let request">
+        <mat-icon>{{ getRequestTypeIcon(request.requestType) }}</mat-icon>
+        {{ request.requestType }}
+      </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <td mat-cell *matCellDef="let request">{{ request.description }}</td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let request">
+        <mat-chip [color]="getStatusColor(request.status)" selected>{{ request.status }}</mat-chip>
+      </td>
+    </ng-container>
+
+    <!-- Priority Column -->
+    <ng-container matColumnDef="priority">
+      <th mat-header-cell *matHeaderCellDef>Prioridad</th>
+      <td mat-cell *matCellDef="let request">
+        <mat-chip [color]="getPriorityColor(request.priority)" selected>{{ request.priority }}</mat-chip>
+      </td>
+    </ng-container>
+
+    <!-- Created At Column -->
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef>Fecha de creación</th>
+      <td mat-cell *matCellDef="let request">{{ request.createdAt | date:'dd/MM/yyyy HH:mm' }}</td>
+    </ng-container>
+
+    <!-- Completed At Column -->
+    <ng-container matColumnDef="completedAt">
+      <th mat-header-cell *matHeaderCellDef>Fecha de completado</th>
+      <td mat-cell *matCellDef="let request">
+        {{ request.completedAt ? (request.completedAt | date:'dd/MM/yyyy HH:mm') : 'Pendiente' }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
