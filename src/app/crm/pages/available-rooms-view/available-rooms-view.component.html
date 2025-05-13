@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Available Rooms</h2>
+
+  @if (rooms.length === 0) {
+    <div class="no-results">
+      No rooms found for the selected dates.
+    </div>
+  }
+
+  <mat-grid-list class="grid-list" cols="3" gutterSize="20px">
+    @for (room of rooms; track room.id) {
+      <mat-grid-tile>
+        <mat-card class="room-card">
+          <mat-card-content class="card-content">
+            <div class="image-container">
+              <img [src]="room.images[0]" alt="Room image" class="room-image" />
+            </div>
+            <div class="details-container">
+              <mat-card-title>{{ room.name }}</mat-card-title>
+              <p class="description">{{ room.description }}</p>
+
+              <p><strong>Capacity:</strong> {{ room.capacity }} people</p>
+              <p><strong>Price:</strong> ${{ room.price }} / night</p>
+              <p><strong>Amenities:</strong> {{ room.amenities.join(', ') }}</p>
+
+              <p><strong>IoT Devices:</strong></p>
+              <ul class="device-list">
+                @for (device of getDevices(room.iotDeviceIds); track device.id) {
+                  <li>
+                    {{ device.name }} <span class="text-xs">({{ device.type }})</span>
+                  </li>
+                }
+              </ul>
+              <mat-card-actions align="end">
+              <button mat-raised-button color="primary" (click)="goToCustomization(room)">
+                Reserve
+              </button>
+              </mat-card-actions>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    }
+  </mat-grid-list>
+</div>
