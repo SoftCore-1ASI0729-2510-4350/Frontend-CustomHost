@@ -1,10 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './public/pages/home/home.component';
 
-const LoginComponent = () => import('./auth/pages/login/login.component').then(m => m.LoginComponent);
-const RegisterComponent = () => import('./auth/pages/register/register.component').then(m => m.RegisterComponent);
-const AdminComponent = () => import('./billing/pages/admin/admin.component').then(m => m.AdminComponent);
-
 const BookComponent = () => import('./crm/pages/book/book.component').then(m => m.BookComponent);
 const CustomerRequestsComponent = () => import('./crm/pages/customer-requests/customer-requests.component').then(m => m.CustomerRequestsComponent);
 const CustomerServiceComponent = () => import('./crm/pages/customer-service/customer-service.component').then(m => m.CustomerServiceComponent);
@@ -23,16 +19,6 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full', data: { title: 'Inicio' } },
   { path: 'home', component: HomeComponent, data: { title: 'Página Principal' } },
 
-  { path: 'auth', children: [
-      { path: 'login', loadComponent: LoginComponent, data: { title: 'Iniciar Sesión' } },
-      { path: 'register', loadComponent: RegisterComponent, data: { title: 'Registro' } }
-    ]
-  },
-
-  { path: 'billing', children: [
-      { path: 'admin', loadComponent: AdminComponent, data: { title: 'Administración' } }
-    ]
-  },
 
   { path: 'crm', children: [
       { path: 'book', loadComponent: BookComponent, data: { title: 'Reservar' } },
