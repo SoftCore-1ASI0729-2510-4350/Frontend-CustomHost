@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import {delay, map} from 'rxjs/operators';
 import {Booking} from '../model/book.entity';
+import {MyBooking} from '../model/my-booking.entity';
 
 export interface Room {
   id: number;
@@ -20,6 +22,17 @@ export interface AvailabilityResponse {
 
 @Injectable({providedIn: 'root'})
 export class BookService {
+
+  private urlBase = 'http://localhost:3000';
+  private endpoint = '/bookings';
+  constructor(private http: HttpClient) { }
+
+  getBookings(): Observable<MyBooking[]> {
+    return this.http.get<any[]>(`${this.urlBase}${this.endpoint}`).pipe(
+      map(data => data.map(item => new MyBooking(item)))
+    )
+  }
+
   private readonly mockRooms: Room[] = [
     {
       id: 201,
