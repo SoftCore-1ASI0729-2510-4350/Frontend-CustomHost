@@ -1,1 +1,11 @@
-<p>book works!</p>
+<div class="book-view-container">
+  <div class="header">
+    <h1 class="title">Booking App</h1>
+    <p class="subtitle">Find your perfect room</p>
+  </div>
+
+  <div class="content">
+    <h2 class="section-title">Look for Rooms</h2>
+    <app-book-form (searchResult)="goToRooms($event)"></app-book-form>
+  </div>
+</div>
