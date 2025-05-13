@@ -1,7 +1,7 @@
 // json-server.js
 import jsonServer from 'json-server';
 const server = jsonServer.create();
-const router = jsonServer.router('src/server/db.json');
+const router = jsonServer.router('server/db.json');
 const middlewares = jsonServer.defaults();
 const port = 3000;
 
@@ -306,9 +306,6 @@ server.patch('/service-requests/:id/complete', (req, res) => {
   }
 });
 
-
-
-
 /***
  * @endpoint PATCH /staff-requests/:id/complete
  * @description Marks a staff request as completed
@@ -365,7 +362,6 @@ server.patch('/staff-requests/:id/complete', (req, res) => {
     });
   }
 });
-
 
 /***
  * @endpoint POST /staff-requests/:id/create
@@ -434,10 +430,6 @@ server.post('/staff-requests/:id/create', (req, res) => {
     });
   }
 });
-
-
-
-
 
 /***
  * @endpoint POST /apply-guest-preferences
@@ -531,9 +523,57 @@ server.post('/apply-guest-preferences', (req, res) => {
   }
 });
 
-server.use(jsonServer.rewriter({
+server.get('/bookings/all', (req, res) => {
+  try {
+    const { status, fromDate, toDate, userId, hotelId } = req.query;
+    const db = router.db;
+    let bookings = db.get('bookings').value();
 
-}));
+    // Aplicar filtros si están presentes
+    if (status) {
+      bookings = bookings.filter(booking => booking.status === status);
+    }
+
+    if (fromDate) {
+      const fromDateObj = new Date(fromDate);
+      bookings = bookings.filter(booking => new Date(booking.checkInDate) >= fromDateObj);
+    }
+
+    if (toDate) {
+      const toDateObj = new Date(toDate);
+      bookings = bookings.filter(booking => new Date(booking.checkOutDate) <= toDateObj);
+    }
+
+    if (userId) {
+      bookings = bookings.filter(booking => booking.userId === parseInt(userId));
+    }
+
+    if (hotelId) {
+      bookings = bookings.filter(booking => booking.hotelId === parseInt(hotelId));
+    }
+
+    // Opcionalmente puedes agregar información adicional como detalles de habitación
+    const bookingsWithDetails = bookings.map(booking => {
+      const room = db.get('rooms').find({ id: booking.roomId }).value();
+      return {
+        ...booking,
+        roomDetails: room ? {
+          roomNumber: room.roomNumber,
+          type: room.type,
+          floor: room.floor
+        } : null
+      };
+    });
+
+    res.json(bookingsWithDetails);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener reservas', details: error.message });
+  }
+});
+
+
+
+
 
 server.use(router);
 
