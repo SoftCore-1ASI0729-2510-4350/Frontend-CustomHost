@@ -1,0 +1,27 @@
+.booking-form {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+
+.date-field {
+  width: 100%;
+}
+
+.submit-button {
+  height: 56px;
+}
+
+:host ::ng-deep .booking-form .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
