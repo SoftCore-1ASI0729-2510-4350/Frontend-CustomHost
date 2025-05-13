@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface CheckOut {
   room: string;
@@ -13,7 +14,7 @@ interface CheckOut {
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, MatCardModule, MatTableModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatTableModule, MatIconModule, TranslatePipe],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

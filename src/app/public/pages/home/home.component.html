@@ -1,49 +1,49 @@
 <div class="dashboard-container">
-  <h1>CustomHost Guest</h1>
+  <h1>{{ 'homepage.title' | translate }}</h1>
 
   <div class="stats-grid">
     <mat-card class="stat-card">
       <div class="stat-value">{{ stats.occupiedRooms }} / {{ stats.totalRooms }}</div>
-      <div class="stat-label">Habitaciones ocupadas</div>
+      <div class="stat-label">{{ 'homepage.occupied-rooms' | translate }}</div>
     </mat-card>
 
     <mat-card class="stat-card">
       <div class="stat-value">{{ stats.todayBookings }}</div>
-      <div class="stat-label">Reservas de hoy</div>
+      <div class="stat-label">{{ 'homepage.todays-bookings' | translate }}</div>
     </mat-card>
 
     <mat-card class="stat-card urgent">
       <div class="stat-value">{{ stats.maintenanceRequests }}</div>
-      <div class="stat-label">Solicitudes de mantenimiento</div>
+      <div class="stat-label">{{ 'homepage.maintainance-requests' | translate }}</div>
       <div class="urgent-badge">Urgente</div>
     </mat-card>
 
     <mat-card class="stat-card">
       <div class="stat-value">{{ stats.pendingCheckouts }}</div>
-      <div class="stat-label">Check-outs pendientes</div>
+      <div class="stat-label">{{ 'homepage.pending-checkouts' | translate }}</div>
     </mat-card>
   </div>
 
   <mat-card class="table-card">
-    <h2>Próximos Check-outs</h2>
+    <h2>{{ 'homepage.next-checkouts' | translate }}</h2>
     <table mat-table [dataSource]="checkOuts" class="mat-elevation-z8">
       <ng-container matColumnDef="room">
-        <th mat-header-cell *matHeaderCellDef> Habitación </th>
+        <th mat-header-cell *matHeaderCellDef> {{ 'homepage.rooms' | translate }} </th>
         <td mat-cell *matCellDef="let item"> {{item.room}} </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <th mat-header-cell *matHeaderCellDef> {{ 'homepage.name' | translate }} </th>
         <td mat-cell *matCellDef="let item"> {{item.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="checkIn">
-        <th mat-header-cell *matHeaderCellDef> Check-in </th>
+        <th mat-header-cell *matHeaderCellDef> {{ 'homepage.checkin' | translate }} </th>
         <td mat-cell *matCellDef="let item"> {{item.checkIn}} </td>
       </ng-container>
 
       <ng-container matColumnDef="checkOut">
-        <th mat-header-cell *matHeaderCellDef> Check-out </th>
+        <th mat-header-cell *matHeaderCellDef> {{ 'homepage.checkout' | translate }} </th>
         <td mat-cell *matCellDef="let item"> {{item.checkOut}} </td>
       </ng-container>
 

@@ -15,5 +15,18 @@
     "profile": "Perfil",
     "preferences": "Preferencias",
     "page-not-found": "Página No Encontrada"
+  },
+  "homepage":{
+    "title": "CustomHost Huésped",
+    "occupied-rooms": "Cuartos ocupados",
+    "occupied-rooms": "Habitaciones Ocupadas",
+    "todays-bookings": "Reservas de Hoy",
+    "maintainance-requests": " Solicitudes de Mantenimiento",
+    "pending-checkouts": "Checkouts Pendientes",
+    "next-checkouts": "Proximos checkouts",
+    "rooms": "Cuartos",
+    "name": "Nombre",
+    "checkin": "Entrada",
+    "checkout": "Salida"
   }
 }

@@ -9,9 +9,6 @@ const CustomizeRoomViewComponent = () => import('./crm/pages/customize-room-view
 
 const IotDevicesComponent = () => import('./guest-experience/pages/iot-devices/iot-devices.component').then(m => m.IotDevicesComponent);
 
-const ProfileComponent = () => import('./profiles/pages/profile/profile.component').then(m => m.ProfileComponent);
-const PreferencesComponent = () => import('./profiles/pages/preferences/preferences.component').then(m => m.PreferencesComponent);
-
 const PageNotFoundComponent = () => import('./public/pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent);
 
 const CustomerServicesCreateAndEditComponent = () => import('./crm/pages/customer-services-create-and-edit/customer-services-create-and-edit.component').then(m => m.CustomerServicesCreateAndEditComponent);
@@ -37,11 +34,7 @@ export const routes: Routes = [
     ]
   },
 
-  { path: 'profiles', children: [
-      { path: 'profile', loadComponent: ProfileComponent, data: { title: 'Perfil' } },
-      { path: 'preferences', loadComponent: PreferencesComponent, data: { title: 'Preferencias' } }
-    ]
-  },
+
 
   { path: '**', loadComponent: PageNotFoundComponent, data: { title: 'Página No Encontrada' } }
 ];

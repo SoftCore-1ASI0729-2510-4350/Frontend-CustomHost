@@ -15,5 +15,18 @@
     "profile": "Profile",
     "preferences": "Preferences",
     "page-not-found": "Page Not Found"
+  },
+
+  "homepage":{
+    "title": "CustomHost Guest",
+    "occupied-rooms": "Occupied Rooms",
+    "todays-bookings": "Today's Bookings",
+    "maintainance-requests": "Maintenance Requests",
+    "pending-checkouts": "Pending Checkouts",
+    "next-checkouts": "Next Checkouts",
+    "rooms": "Rooms",
+    "name": "Name",
+    "checkin": "Check-in",
+    "checkout": "Check-out"
   }
 }
