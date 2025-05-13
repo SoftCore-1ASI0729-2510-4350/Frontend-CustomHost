@@ -11,6 +11,8 @@ const CustomerRequestsComponent = () => import('./crm/pages/customer-requests/cu
 const CustomerServiceComponent = () => import('./crm/pages/customer-service/customer-service.component').then(m => m.CustomerServiceComponent);
 const MyBookingsComponent = () => import('./crm/pages/my-bookings/my-bookings.component').then(m => m.MyBookingsComponent);
 const RequestStaffComponent = () => import('./crm/pages/request-staff/request-staff.component').then(m => m.RequestStaffComponent);
+const AvailableRoomsViewComponent = () => import('./crm/pages/available-rooms-view/available-rooms-view.component').then(m => m.AvailableRoomsViewComponent);
+const CustomizeRoomViewComponent = () => import('./crm/pages/customize-room-view/customize-room-view.component').then(m => m.CustomizeRoomComponent);
 
 const IotDevicesComponent = () => import('./guest-experience/pages/iot-devices/iot-devices.component').then(m => m.IotDevicesComponent);
 
@@ -40,7 +42,9 @@ export const routes: Routes = [
       { path: 'customer-requests', loadComponent: CustomerRequestsComponent, data: { title: 'Solicitudes de Clientes' } },
       { path: 'customer-service', loadComponent: CustomerServiceComponent, data: { title: 'Atención al Cliente' } },
       { path: 'my-bookings', loadComponent: MyBookingsComponent, data: { title: 'Mis Reservas' } },
-      { path: 'request-staff', loadComponent: RequestStaffComponent, data: { title: 'Solicitar Personal' } }
+      { path: 'request-staff', loadComponent: RequestStaffComponent, data: { title: 'Solicitar Personal' } },
+      { path: 'available-rooms-view', loadComponent: AvailableRoomsViewComponent, data: { title: 'Habitaciones Disponibles' } },
+      { path: 'customize-room-view/:roomId', loadComponent: CustomizeRoomViewComponent, data: { title: 'Personalizar Habitación' } }
     ]
   },
 
