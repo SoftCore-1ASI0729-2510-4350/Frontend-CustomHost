@@ -1,0 +1,62 @@
+<mat-card class="form-card">
+  <mat-card-header>
+    <mat-card-title style="padding-bottom: 20px">Nueva solicitud de servicio</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="serviceRequestForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Habitación</mat-label>
+        <mat-select formControlName="roomId">
+          <mat-option *ngFor="let room of rooms" [value]="room.id">
+            {{ room.number }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="isInvalidControl(serviceRequestForm, 'roomId')">
+          {{ errorMessagesForControl(serviceRequestForm, 'roomId') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de solicitud</mat-label>
+        <mat-select formControlName="requestType">
+          <mat-option *ngFor="let type of requestTypes" [value]="type.value">
+            {{ type.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="isInvalidControl(serviceRequestForm, 'requestType')">
+          {{ errorMessagesForControl(serviceRequestForm, 'requestType') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="description" rows="5"></textarea>
+        <mat-error *ngIf="isInvalidControl(serviceRequestForm, 'description')">
+          {{ errorMessagesForControl(serviceRequestForm, 'description') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Prioridad</mat-label>
+        <mat-select formControlName="priority">
+          <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+            {{ priority.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="isInvalidControl(serviceRequestForm, 'priority')">
+          {{ errorMessagesForControl(serviceRequestForm, 'priority') }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button mat-button type="button" (click)="onCancel()">
+          Cancelar
+        </button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="serviceRequestForm.invalid">
+          Enviar solicitud
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
