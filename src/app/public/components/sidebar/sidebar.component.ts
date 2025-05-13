@@ -6,7 +6,7 @@ import {
 } from '@angular/material/sidenav';
 import {MatListItem, MatNavList} from '@angular/material/list';
 import {MatIcon} from '@angular/material/icon';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {MatLine} from '@angular/material/core';
 import {NgForOf, NgIf} from '@angular/common';
 import { CommonModule } from '@angular/common';
@@ -20,16 +20,14 @@ import { Router } from '@angular/router';
     MatIcon,
     RouterOutlet,
     MatListItem,
-    MatLine,
     RouterLink,
-    NgForOf,
-    NgIf,
     MatDrawerContent,
     MatDrawerContainer,
     MatDrawer,
     HeaderComponent,
     TranslatePipe,
-    CommonModule
+    CommonModule,
+    RouterLinkActive
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
