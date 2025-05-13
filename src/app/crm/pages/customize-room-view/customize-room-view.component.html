@@ -1,0 +1,127 @@
+<div class="customize-container">
+  <h2 class="section-title">Custom room</h2>
+  <div class="form-columns">
+    <mat-card class="guest-card">
+      <mat-card-header>
+        <mat-card-title>Guest Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content [formGroup]="guestForm">
+        <div class="form-grid">
+          <mat-form-field appearance="outline" class="field half-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+            @if (isControlInvalid('name')) {
+              <mat-error>Name is required</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field half-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            @if (isControlInvalid('email')) {
+              @if (getFormControlError('email', 'required')) {
+                <mat-error>Email is required</mat-error>
+              }
+              @else if (getFormControlError('email', 'email')) {
+                <mat-error>Invalid email format</mat-error>
+              }
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field half-width">
+            <mat-label>DNI</mat-label>
+            <input matInput formControlName="dni">
+            @if (isControlInvalid('dni')) {
+              <mat-error>DNI is required</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field half-width">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone">
+            @if (isControlInvalid('phone')) {
+              <mat-error>Phone is required</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="confirm-button">
+        <button mat-raised-button color="primary" (click)="confirmReservation()">
+          Confirm Reservation
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="iot-card">
+      <mat-card-header>
+        <mat-card-title>IoT Customization</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        @for (device of devices; track device.id) {
+          <div class="device-item">
+            <div class="device-header">
+              <mat-icon>{{ deviceIcon(device.type) }}</mat-icon>
+              {{ device.name }}
+              <span class="device-type">({{ device.type }})</span>
+            </div>
+            @if (device.customizable && customSettings[device.id]) {
+              <div class="device-controls">
+                @if (customSettings[device.id].brightness !== undefined) {
+                  <div class="control-group">
+                    <label>Brightness</label>
+                    <mat-slider [min]="0"
+                                [max]="100"
+                                [step]="1"
+                                [(ngModel)]="customSettings[device.id].brightness"
+                                [ngModelOptions]="{ standalone: true }">
+                    </mat-slider>
+                  </div>
+                }
+
+                @if (customSettings[device.id].color !== undefined) {
+                  <div class="control-group">
+                    <label>Color of Light</label>
+                    <mat-select [(ngModel)]="customSettings[device.id].color" [ngModelOptions]="{ standalone: true }">
+                      <mat-option value="warm white">Warm White</mat-option>
+                      <mat-option value="cool white">Cool White</mat-option>
+                      <mat-option value="natural white">Natural White</mat-option>
+                    </mat-select>
+                  </div>
+                }
+
+                @if (customSettings[device.id].intensity !== undefined) {
+                  <div class="control-group">
+                    <label>Aroma Intensity</label>
+                    <mat-slider [min]="0"
+                                [max]="100"
+                                [step]="1"
+                                [(ngModel)]="customSettings[device.id].intensity"
+                                [ngModelOptions]="{ standalone: true }">
+                    </mat-slider>
+                  </div>
+                }
+
+                @if (customSettings[device.id].scent !== undefined) {
+                  <div class="control-group">
+                    <label>Aroma</label>
+                    <mat-select [(ngModel)]="customSettings[device.id].scent" [ngModelOptions]="{ standalone: true }">
+                      <mat-option *ngFor="let scent of scentOptions" [value]="scent">{{ scent }}</mat-option>
+                    </mat-select>
+                  </div>
+                }
+
+                @if (customSettings[device.id].open !== undefined) {
+                  <div class="control-group">
+                    <label>Curtains</label>
+                    <mat-slide-toggle [(ngModel)]="customSettings[device.id].open" [ngModelOptions]="{ standalone: true }">
+                    </mat-slide-toggle>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
