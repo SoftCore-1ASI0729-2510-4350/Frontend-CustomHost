@@ -49,6 +49,11 @@ export class SidebarComponent implements  OnInit{
   isActive(path: string): boolean {
     return this.router.url === path;
   }
+
+  isAuthRoute(): boolean {
+    return this.router.url.includes('auth/');
+  }
+
   ngOnInit() {
     // Initialize any data or perform any setup tasks here
     console.log('Sidebar component initialized');
