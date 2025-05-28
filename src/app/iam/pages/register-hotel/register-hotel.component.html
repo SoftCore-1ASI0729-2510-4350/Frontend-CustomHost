@@ -1,0 +1,76 @@
+<div class="register-container">
+  <div class="register-image-container">
+    <img src="assets/img/auth_hotel_img.jpg" alt="Register Hotel Image" class="register-image">
+    <div class="overlay">
+      <h1 class="welcome-text">Registra tu Hotel en nuestra Plataforma</h1>
+    </div>
+  </div>
+
+  <div class="register-form-container">
+    <mat-card class="register-card">
+      <mat-card-header>
+        <mat-card-title>Registro para Hoteles</mat-card-title>
+        <mat-card-subtitle>Crea una cuenta para administrar tu hotel</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form class="register-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre de usuario</mat-label>
+            <input matInput type="text" placeholder="usuario123" required>
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error>Por favor ingresa un nombre de usuario</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre del Hotel</mat-label>
+            <input matInput type="text" placeholder="Hotel Ejemplo" required>
+            <mat-icon matPrefix>business</mat-icon>
+            <mat-error>Por favor ingresa el nombre de tu hotel</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" placeholder="ejemplo@hotel.com" required>
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error>Por favor ingresa un correo válido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button" aria-label="Toggle password visibility">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>Por favor ingresa una contraseña</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button" aria-label="Toggle password visibility">
+              <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>Por favor confirma tu contraseña</mat-error>
+          </mat-form-field>
+
+          <div class="terms-container">
+            <mat-checkbox color="primary" required>Acepto los <a href="#" class="terms-link">términos y condiciones</a> para hoteles</mat-checkbox>
+          </div>
+
+          <button mat-raised-button color="primary" class="register-button">
+            <mat-icon>hotel</mat-icon>
+            Registrar Hotel
+          </button>
+
+          <div class="login-link">
+            ¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

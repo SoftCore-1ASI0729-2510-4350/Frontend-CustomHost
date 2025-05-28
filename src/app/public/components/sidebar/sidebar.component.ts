@@ -51,7 +51,7 @@ export class SidebarComponent implements  OnInit{
   }
 
   isAuthRoute(): boolean {
-    return this.router.url.includes('auth/');
+    return this.router.url.includes('iam/');
   }
 
   ngOnInit() {

@@ -13,11 +13,21 @@ const PageNotFoundComponent = () => import('./public/pages/page-not-found/page-n
 
 const CustomerServicesCreateAndEditComponent = () => import('./crm/pages/customer-services-create-and-edit/customer-services-create-and-edit.component').then(m => m.CustomerServicesCreateAndEditComponent);
 
+const LoginComponent = () => import('./iam/pages/login/login.component').then(m => m.LoginComponent);
+const RegisterComponent = () => import('./iam/pages/register/register.component').then(m => m.RegisterComponent);
+const RegisterHotelComponent = () => import('./iam/pages/register-hotel/register-hotel.component').then(m => m.RegisterHotelComponent);
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full', data: { title: 'Inicio' } },
   { path: 'home', component: HomeComponent, data: { title: 'Página Principal' } },
 
+
+  { path: 'iam', children: [
+      { path: 'login', loadComponent: LoginComponent, data: { title: 'Iniciar Sesión' } },
+      { path: 'register', loadComponent: RegisterComponent, data: { title: 'Registro' } },
+      { path: 'register-hotel', loadComponent: RegisterHotelComponent, data: { title: 'Registrar Hotel' } }
+    ]
+  },
 
   { path: 'crm', children: [
       { path: 'book', loadComponent: BookComponent, data: { title: 'Reservar' } },
