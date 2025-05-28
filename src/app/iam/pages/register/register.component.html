@@ -1,0 +1,66 @@
+<div class="register-container">
+  <div class="register-image-container">
+    <img src="assets/img/auth_img.jpg" alt="Register Image" class="register-image">
+    <div class="overlay">
+      <h1 class="welcome-text">Únete a nuestra plataforma</h1>
+    </div>
+  </div>
+
+  <div class="register-form-container">
+    <mat-card class="register-card">
+      <mat-card-header>
+        <mat-card-title>Crear Cuenta</mat-card-title>
+        <mat-card-subtitle>Completa tus datos para registrarte</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form class="register-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre de usuario</mat-label>
+            <input matInput type="text" placeholder="usuario123" required>
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error>Por favor ingresa un nombre de usuario</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" placeholder="ejemplo@correo.com" required>
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error>Por favor ingresa un correo válido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button" aria-label="Toggle password visibility">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>Por favor ingresa una contraseña</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button" aria-label="Toggle password visibility">
+              <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>Por favor confirma tu contraseña</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="register-button">
+            <mat-icon>how_to_reg</mat-icon>
+            Registrarse
+          </button>
+
+          <div class="login-link">
+            ¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
