@@ -1,0 +1,56 @@
+<div class="login-container">
+  <div class="login-image-container">
+    <img src="assets/img/auth_img.jpg" alt="Login Image" class="login-image">
+    <div class="overlay">
+      <h1 class="welcome-text">Bienvenido a nuestra plataforma</h1>
+    </div>
+  </div>
+
+  <div class="login-form-container">
+    <mat-card class="login-card">
+      <mat-card-header>
+        <mat-card-title>Iniciar Sesión</mat-card-title>
+        <mat-card-subtitle>Ingresa tus credenciales para continuar</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form class="login-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" placeholder="ejemplo@correo.com" required>
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error>Por favor ingresa un correo válido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button" aria-label="Toggle password visibility">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>Por favor ingresa tu contraseña</mat-error>
+          </mat-form-field>
+
+          <div class="remember-forgot">
+            <mat-checkbox color="primary">Recordarme</mat-checkbox>
+            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <button mat-raised-button color="primary" class="login-button">
+            <mat-icon>login</mat-icon>
+            Iniciar Sesión
+          </button>
+
+          <div class="register-link">
+            ¿No tienes una cuenta? <a href="#">Regístrate aquí</a>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<style>
+
+</style>
